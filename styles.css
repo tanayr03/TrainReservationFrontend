@@ -1,0 +1,408 @@
+body {
+ //   padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    background-color: whitesmoke;
+}
+
+.hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.img-avatar {
+    height: 150px;
+    width: 150px;
+}
+
+.img-small {
+    height: 50px;
+    width: 50px;
+}
+
+.panel-heading h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: normal;
+    width: 75%;
+    padding-top: 8px;
+}
+
+.navbar-inverse {
+    background-color: #4765a0;
+    border-color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+.ui-growl {
+right: 100px;
+top: 80%;
+}
+.ui-growl-item-container.ui-state-highlight.ui-growl-message-success {
+    background: green;
+}
+.search-flight{
+	height: 200px;
+	 background-color: #D3D3D3;
+    border-color: whitesmoke;
+    border: 2px solid whitesmoke;
+}
+
+.shadowCard {
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.ng-valid[required] {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.table>tbody>tr>td {
+    vertical-align: middle;
+}
+
+.fa {
+  padding-right: 5px;
+}
+
+.navbar-fixed-bottom {
+  background-color: #1d2140;
+  color: whitesmoke;
+}
+
+.carousel-indicators .active {
+    background: #31708f;
+}
+.content {
+    margin-top: 20px;
+}
+.adjust1 {
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
+.adjust2 {
+    margin: 0;
+}
+.carousel-indicators li {
+    border: 1px solid #ccc;
+}
+.carousel-control {
+    color: #31708f;
+    width: 5%;
+}
+.carousel-control:hover,
+.carousel-control:focus {
+    color: #31708f;
+}
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none;
+}
+.media-object {
+    margin: auto;
+    margin-top: 15%;
+}
+@media screen and (max-width: 768px) {
+    .media-object {
+        margin-top: 0;
+    }
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+/*.header__contents {
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 17;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    line-height: 90px;
+    height: 66px;
+} */
+
+
+
+
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.nav {
+    display: inline-block;
+    width: 100%;
+    height: 20%;
+    horizontal-align: top;
+    background-color: #f9f9f9;
+    -webkit-box-shadow: inset -2px 0 0 0 rgba(204, 200, 200, 0.5);
+    box-shadow: inset -2px 0 0 0 rgba(204, 200, 200, 0.5);
+    position: relative;
+    z-index: 9; }
+
+.nav__container {
+    padding: 10px 24px 0 24px; }
+.nav__container__active {
+    padding: 24px 24px 38px 24px; }
+.nav__heading {
+    font-family: Roboto-Regular;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 46.0px;
+    color: #666666; }
+.nav__list {
+    margin-bottom: 35px; }
+.nav__list__ending {
+    border: 1px solid; }
+.nav__item {
+    list-style: inside;
+    font-family: Roboto-Regular;
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 46.0px;
+    letter-spacing: normal;
+    color: #666666;
+    cursor: pointer;
+    padding-right: 20px;
+}
+.nav__item:hover {
+    color: #e81030; }
+.nav__item--selected {
+    color: #e81030;
+    position: relative; }
+.nav__item--selected:before {
+    content: '';
+    border-left: 5px solid #e81030;
+    display: inline-block;
+    position: absolute;
+    left: 5px;
+    top: 40%;
+    vertical-align: middle; }
+.nav__limit {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    height: 1px;
+    width: 100%;
+    position: relative;
+    display: block; }
+.nav__limit__circle {
+    height: 30px;
+    width: 30px;
+    border: 1px solid #979797;
+    -webkit-box-shadow: 0 0 0 13px #f9f9f9;
+    box-shadow: 0 0 0 13px #f9f9f9;
+    border-radius: 50%;
+    position: absolute;
+    top: -13px;
+    background-color: #f9f9f9;
+    right: 45%;
+    z-index: 2;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer; }
+.nav__limit__circle:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    right: 40%;
+    top: 35%;
+    z-index: 10;
+    border-width: 0 1px 1px 0;
+    border-color: #666666; }
+
+.layout {
+    width: 100%;
+    height: 100%; }
+.layout--full-height {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    overflow: hidden; }
+.layout--with-shadow {
+    -webkit-box-shadow: 1px 0 0 1px rgba(0, 0, 0, 0.12);
+    box-shadow: 1px 0 0 1px rgba(0, 0, 0, 0.12); }
+.layout__background {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: cover; }
+.layout__background__overlay {
+    opacity: 0.9;
+    height: 100%;
+    width: 100%;
+    position: absolute; }
+.layout--fixed {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+.layout--table {
+    width: 85%;
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    position: absolute;
+     }
+
+
+table {
+    table-layout: auto;
+    width: 100%;
+
+}
+.header__text {
+    font-family: Roboto-Regular;
+    font-size: 2rem;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 20.0px;
+    letter-spacing: normal;
+    color: #666666;
+    cursor: pointer;
+    padding-right: 20px;
+}
+.header__contents {
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 17;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    line-height: 90px;
+    height: 90px; }
+
+.header__logo {
+    height: 100%;
+    width: 95%;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box; }
+.header__logo__image {
+    vertical-align: middle;
+    max-width: 154px;
+    max-height: 32px; }
+.header__logo:before {
+    content: '';
+    display: inline-block;
+    width: 37px;
+    height: 22px;
+    background-color: #e81030;
+    margin-right: 7px;
+    vertical-align: middle; }
+.header_nav {
+    width: 5%;
+    margin-left: -4px;
+    display: inline-block;
+    position: relative;
+    text-align: right;
+    vertical-align: middle; }
+.header__notification {
+    width: 5%;
+    margin-left: -4px;
+    display: inline-block;
+    position: relative;
+    text-align: right;
+    vertical-align: middle; }
+.header__notification__count {
+    position: absolute;
+    top: -2px;
+    left: 17px;
+    width: 24px;
+    height: 24px;
+    background-color: #e81030;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-family: Roboto-Regular;
+    border-radius: 50%;
+    line-height: 24px;
+    text-align: center; }
+
+.myTable thead {
+    display: none;
+}
+
+.header__notification__icon--notification {
+}
+
+div.tabt {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+    /* Style the buttons inside the tab */
+    div.tabt button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+        /* Change background color of buttons on hover */
+        div.tabt button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        div.tabt button.active {
+            background-color: #ccc;
+        }
+
+.colored {
+    color: #FF0000;
+}
+
+a label {
+    cursor: pointer;
+}/* You can add global styles to this file, and also import other style files */
+
+#menu-outer {
+	height: 84px;
+}
+
+.table {
+	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
+}
+
+ul#horizontal-list {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+	}
+	ul#horizontal-list li {
+		display: inline;
+	}

@@ -1,0 +1,32 @@
+
+<p-confirmDialog width="425"></p-confirmDialog>
+<form ngNoForm method="post" *ngIf="bookings">
+	<br />
+<p-growl [(value)]="msgs"></p-growl>
+	<div *ngFor="let booking of bookings">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-12">
+					<span><strong>Booking Status:
+							{{booking.bookingStatus}}</strong></span> &nbsp; <span>Passengers: {{booking.noOfPassenger}}</span> <span class="col-lg-offset-7"><strong>Date:{{booking.displayDate}}</strong></span>
+				</div>
+			</div>
+		</div>
+		<p-dataTable [value]="booking.trainList" [responsive]="true"
+			*ngIf="bookings"> <p-column field="name"
+			header="Train Name" [editable]="true" width="500"></p-column> <p-column
+			field="srcStation" header="From" [editable]="true"></p-column> <p-column
+			field="desStation" header="To" [editable]="true"></p-column> <p-column
+			field="displayDepartureTime" header="DepartureTime" [editable]="true"></p-column>
+		<p-column field="displayArrivalTime" header="ArrivalTime"
+			[editable]="true"></p-column> <p-footer>
+		<div style="float: left">Total Fare: {{booking.totalFare}}</div>
+		<div class="ui-helper-clearfix col-lg-offset-9" style="width: 20%" >
+
+			<button class="btn btn-danger " type="button" pButton icon="fa-plus"
+				(click)="confirm1(booking)" style="float: right" label="Cancel" *ngIf="booking.bookingStatus != 'cancelled'"></button>
+		</div>
+		</p-footer> </p-dataTable>
+		<br> <br>
+	</div>
+</form>

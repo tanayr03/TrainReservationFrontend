@@ -1,0 +1,134 @@
+<div class="modal-body search-flight">
+	<div class="form-group">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-4">
+					<p-radioButton name="loadDisch" [(ngModel)]="search.isRoundtrip"
+						label="One Way" value="1"></p-radioButton>
+				</div>
+				<div class="col-md-4">
+					<p-radioButton name="loadDisch" [(ngModel)]="!search.isRoundtrip"
+						label="Round Trip" value="2"></p-radioButton>
+				</div>
+				<div class="col-md-4">
+          <p-checkbox [(ngModel)]="search.isExactTime" binary="true" label="Exact Time" ></p-checkbox>
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-2">
+				<label class="control-label">From Station</label> <select
+					class="form-control" [(ngModel)]="search.srcStation">
+					<option *ngFor="let station of stations">{{station}}</option>
+				</select>
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">To Station</label> <select
+					class="form-control" [(ngModel)]="search.desStation">
+					<option *ngFor="let station of stations">{{station}}</option>
+				</select>
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">Ticket Type</label> <select
+					class="form-control" [(ngModel)]="search.ticketType">
+					<option *ngFor="let ticket of ticketType">{{ticket}}</option>
+				</select>
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">No Of Passenger</label> <select
+					class="form-control" [(ngModel)]="search.noOfPassenger">
+					<option *ngFor="let passenger of noOfPassenger">{{passenger}}</option>
+				</select>
+
+			</div>
+			<div class="col-md-2">
+				<label class="control-label">No Of Connections</label> <select
+					class="form-control" [(ngModel)]="search.noOfConnections">
+					<option *ngFor="let conn of noOfConnections">{{conn}}</option>
+				</select>
+
+			</div>
+			<div class="col-md-2">
+				<label class="control-label" style="padding-top:30px;">Depart</label>
+				<p-calendar [(ngModel)]="search.departDate" [showTime]="true"
+					name="dateLoaded"></p-calendar>
+			</div>
+			</div>
+			<div class="row">
+			<div class="col-md-2" style="padding-top:25px;" *ngIf="search.isRoundtrip!=1">
+				<label class="control-label">Return</label>
+				<p-calendar [(ngModel)]="search.returnDate" [showTime]="true"
+					name="dateLoaded"></p-calendar>
+			</div>
+			<div class="col-md-3" style="padding-top: 25px;">
+				<button type="button" class="btn btn-danger" (click)="Search()">
+					<i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Search
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<form ngNoForm method="post" *ngIf="itenaryList">
+	<br />
+	<div *ngFor="let itenary of itenaryList">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-12">
+					<span><strong>Total Fare for Itinerary: {{itenary.totalFare}}</strong></span> &nbsp;  &nbsp;  &nbsp;
+          <span> Passengers: {{itenary.noOfPassenger}}</span>
+           &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;
+          <span class="col-lg-offset-6"><strong>Date:{{itenary.displayDate}}</strong></span>
+				</div>
+			</div>
+		</div>
+		<p-dataTable [value]="itenary.trainList" [responsive]="true"
+			*ngIf="itenaryList"> <p-column field="name"
+			header="Train Name" [editable]="true"></p-column> <p-column
+			field="srcStation" header="From" [editable]="true"></p-column> <p-column
+			field="desStation" header="To" [editable]="true"></p-column> <p-column
+			field="fare" header="Fare" [editable]="true"></p-column> <p-column
+			field="trainType" header="Train Type" [editable]="true"></p-column> <p-column
+			field="displayDepartureTime" header="DepartureTime" [editable]="true"></p-column>
+		<p-column field="displayArrivalTime" header="ArrivalTime"
+			[editable]="true"></p-column> <p-footer>
+		<div class="ui-helper-clearfix col-lg-offset-9" style="width: 20%">
+			<button class="btn btn-primary " type="button" pButton icon="fa-plus"
+				(click)="bookTicket(itenary)" style="float: right" label="Book"></button>
+		</div>
+		</p-footer> </p-dataTable>
+		<br> <br>
+	</div>
+</form>
+<p-growl [(value)]="msgs"></p-growl>
+<p-dialog [(visible)]="displayDialog" header="Booking Details"
+	[width]="750" [height]="400" [modal]=true *ngIf="displayDialog">
+<br>
+<p-dataTable [value]="itenaryToBook.trainList" [responsive]="true"
+	*ngIf="itenaryToBook">
+  <p-header>
+    <span><strong>Passengers: {{itenaryToBook.noOfPassenger}}</strong></span> &nbsp; &nbsp; &nbsp; &nbsp;
+    <span class="col-lg-offset-6" ><strong>Date:{{itenaryToBook.displayDate}}</strong></span>
+  </p-header>
+
+  <p-column field="name"
+	header="Train Name" [editable]="true"></p-column> <p-column
+	field="srcStation" header="From" [editable]="true"></p-column> <p-column
+	field="desStation" header="To" [editable]="true"></p-column> <p-column
+	field="fare" header="Fare" [editable]="true"></p-column> <p-column
+	field="trainType" header="Train Type" [editable]="true"></p-column> <p-column
+	field="displayDepartureTime" header="DepartureTime" [editable]="true"></p-column>
+<p-column field="displayArrivalTime" header="ArrivalTime"
+	[editable]="true"></p-column> <p-footer> <span><strong>Total
+		Fare: {{itenaryToBook.totalFare}}</strong></span> </p-footer> </p-dataTable> <br>
+<div class="ui-dialog-buttonpane ui-helper-clearfix">
+	<button type="button" class="btn btn-danger" (click)="cancel()"
+		label="Cancel">
+		<i class="fa fa-plus" aria-hidden="true"></i>Cancel
+	</button>
+	<button type="button" class="btn btn-primary" (click)="save()"
+		label="Confirm Booking">
+		<i class="fa fa-plus" aria-hidden="true"></i>Confirm Booking
+	</button>
+</div>
+</p-dialog>
